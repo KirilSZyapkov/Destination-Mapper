@@ -1,0 +1,21 @@
+function destinationMapper(text) {
+    let pattern = /([=|\/])[A-Z][A-Z a-z]{2,}\1/g;
+    let patternWord = /\w+/g;
+    let matches = text.match(pattern);
+    let travel_points = 0;
+    let toPrint = [];
+    if (matches !== null) {
+        matches.forEach(element => {
+            let word = element.match(patternWord);
+            toPrint.push(word[0]);
+            for (let a = 0; a < word[0].length; a++) {
+                travel_points++;
+            }
+        });
+        console.log(`Destinations: ${toPrint.join(`, `)}`);
+        console.log(`Travel Points: ${travel_points}`);
+    } else {
+        console.log(`Destinations: ${toPrint.join(`, `)}`);
+        console.log(`Travel Points: ${travel_points}`);
+    }
+}
